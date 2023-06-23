@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public Player player;
     public Text scoreText;
     public GameObject playButton;
+    public GameObject getReady;
     public GameObject gameOver;
     public GameObject highScoreText;
     private int score;
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour
         score = 0;
         scoreText.text = score.ToString();
 
+        getReady.SetActive(false);
         gameOver.SetActive(false);
         playButton.SetActive(false);
         highScoreText.SetActive(false);

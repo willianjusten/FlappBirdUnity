@@ -1,4 +1,4 @@
-﻿{
+{
     "files.exclude":
     {
         "**/.DS_Store":true,
@@ -13,18 +13,6 @@
         "**/*.dll":true,
         "**/*.exe":true,
         "**/*.pdf":true,
-        "**/*.mid":true,
-        "**/*.midi":true,
-        "**/*.wav":true,
-        "**/*.gif":true,
-        "**/*.ico":true,
-        "**/*.jpg":true,
-        "**/*.jpeg":true,
-        "**/*.png":true,
-        "**/*.psd":true,
-        "**/*.tga":true,
-        "**/*.tif":true,
-        "**/*.tiff":true,
         "**/*.3ds":true,
         "**/*.3DS":true,
         "**/*.fbx":true,
