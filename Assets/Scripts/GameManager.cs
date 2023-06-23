@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public Text scoreText;
     public GameObject playButton;
     public GameObject gameOver;
+    public GameObject highScoreText;
     private int score;
 
     private void Awake() {
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
 
         gameOver.SetActive(false);
         playButton.SetActive(false);
+        highScoreText.SetActive(false);
 
         Time.timeScale = 1f;
         player.enabled = true;
@@ -41,9 +43,20 @@ public class GameManager : MonoBehaviour
         scoreText.text = score.ToString();
     }
 
+    public void SaveAndShowScore() {
+        if (score > PlayerPrefs.GetInt("HighScore")) {
+            PlayerPrefs.SetInt("HighScore", score);
+        }
+
+        highScoreText.GetComponent<Text>().text = "High Score: " + PlayerPrefs.GetInt("HighScore");
+        highScoreText.SetActive(true);
+    }
+
     public void GameOver() {
         gameOver.SetActive(true);
         playButton.SetActive(true);
+
+        SaveAndShowScore();
 
         Pause();
     }
