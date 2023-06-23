@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
     public void SaveAndShowScore() {
         if (score > PlayerPrefs.GetInt("HighScore")) {
             PlayerPrefs.SetInt("HighScore", score);
+            PlayerPrefs.Save();
         }
 
         highScoreText.GetComponent<Text>().text = "High Score: " + PlayerPrefs.GetInt("HighScore");
