@@ -5,13 +5,18 @@ public class Player : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Vector3 direction;
 
-    public float gravity = -9.8f;
+    public float GRAVITY = -9.8f;
 
-    public float strength = 5f;
+    public float FLAP_AMOUNT = 5f;
     
     public Sprite[] sprites;
 
     private int spriteIndex;
+
+    [SerializeField] private AudioSource flapSound;
+    [SerializeField] private AudioSource scoreSound;
+    [SerializeField] private AudioSource hitSound;
+    
 
     private void Awake() {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -29,11 +34,16 @@ public class Player : MonoBehaviour
     }
 
     private void Update() {
+        Flap();
+    }
+
+    private void Flap() {
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) {
-            direction = Vector3.up * strength;
+            direction = Vector3.up * FLAP_AMOUNT;
+            flapSound.Play();
         }
 
-        direction.y += gravity * Time.deltaTime;
+        direction.y += GRAVITY * Time.deltaTime;
         transform.position += direction * Time.deltaTime;
     }
 
@@ -47,11 +57,21 @@ public class Player : MonoBehaviour
         spriteRenderer.sprite = sprites[spriteIndex];
     }
 
+    private void ShowGameOver() {
+        hitSound.Play();
+        FindObjectOfType<GameManager>().GameOver();
+    }
+
+    private void Score() {
+        scoreSound.Play();
+        FindObjectOfType<GameManager>().IncreaseScore();
+    }
+
     private void OnTriggerEnter2D(Collider2D element) {
         if (element.gameObject.tag == "Obstacle") {
-            FindObjectOfType<GameManager>().GameOver();
+            ShowGameOver();
         } else if (element.gameObject.tag == "Scoring") {
-            FindObjectOfType<GameManager>().IncreaseScore();
+            Score();
         }
     }
 }
