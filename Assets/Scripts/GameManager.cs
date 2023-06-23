@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
     private int score;
 
     public void IncreaseScore() {
+        Debug.Log("Score");
         score++;
     }
 
