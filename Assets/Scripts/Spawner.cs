@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public GameObject prefab;
+    [SerializeField] private GameObject prefab;
 
-    public float spawnRate = 1f;
-    public float minHeight = -1f;
-    public float maxHeight = 1f;
+    [SerializeField] private float spawnRate = 1f;
+    [SerializeField] private float minHeight = -1f;
+    [SerializeField] private float maxHeight = 1f;
 
     private void OnEnable() {
         InvokeRepeating(nameof(Spawn), spawnRate, spawnRate);

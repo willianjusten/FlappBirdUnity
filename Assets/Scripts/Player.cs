@@ -5,12 +5,10 @@ public class Player : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Vector3 direction;
 
-    public float GRAVITY = -9.8f;
-
-    public float FLAP_AMOUNT = 5f;
+    [SerializeField] private float GRAVITY = -9.8f;
+    [SerializeField] private float FLAP_AMOUNT = 5f;
     
-    public Sprite[] sprites;
-
+    [SerializeField] private Sprite[] sprites;
     private int spriteIndex;
 
     [SerializeField] private AudioSource flapSound;

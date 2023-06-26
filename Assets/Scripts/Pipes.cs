@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Pipes : MonoBehaviour
 {
-    public float speed = 5f;
+    [SerializeField] private float speed = 5f;
     private float screenLeftEdge;
 
     private void Start() {

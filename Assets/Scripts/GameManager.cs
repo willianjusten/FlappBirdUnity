@@ -3,12 +3,12 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public Player player;
-    public Text scoreText;
-    public GameObject playButton;
-    public GameObject getReady;
-    public GameObject gameOver;
-    public GameObject highScoreText;
+    [SerializeField] private Player player;
+    [SerializeField] private Text scoreText;
+    [SerializeField] private GameObject playButton;
+    [SerializeField] private GameObject getReady;
+    [SerializeField] private GameObject gameOver;
+    [SerializeField] private GameObject highScoreText;
     private int score;
 
     private void Awake() {
