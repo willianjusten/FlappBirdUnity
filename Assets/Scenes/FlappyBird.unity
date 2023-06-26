@@ -343,6 +343,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GRAVITY: -9.8
   FLAP_AMOUNT: 5
+  gameManager: {fileID: 297378515}
   sprites:
   - {fileID: 21300000, guid: 4b4a57de377138e4e8369d8145550062, type: 3}
   - {fileID: 21300000, guid: 47a1c54c1427e10458e1e21315a00666, type: 3}

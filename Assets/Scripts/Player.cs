@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
 
     [SerializeField] private float GRAVITY = -9.8f;
     [SerializeField] private float FLAP_AMOUNT = 5f;
+
+    [SerializeField] private GameManager gameManager;
     
     [SerializeField] private Sprite[] sprites;
     private int spriteIndex;
@@ -57,12 +59,12 @@ public class Player : MonoBehaviour
 
     private void ShowGameOver() {
         hitSound.Play();
-        FindObjectOfType<GameManager>().GameOver();
+        gameManager.GameOver();
     }
 
     private void Score() {
         scoreSound.Play();
-        FindObjectOfType<GameManager>().IncreaseScore();
+        gameManager.IncreaseScore();
     }
 
     private void OnTriggerEnter2D(Collider2D element) {
